@@ -98,7 +98,6 @@ function startGame() {
     if (gameOver === false) {
       createEgg();
     } else {
-      // pauseEggs();
       clearInterval(loop);
       endGame.style.display = "flex";
       document.querySelector(".end-score").innerText = score;
