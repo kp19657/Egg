@@ -1,3 +1,12 @@
+// for (let i = 0; i < difficulty; i++) {
+//   let firstNumber = Math.random() * difficulty
+//   let secondNumber = math random
+//   let question = `${firstNumber}` + `${secondNumber}`
+//   let annwer = firstNumber + secondNumber
+//   questionAr.push(qestion)
+//   answerArr.push(answer)
+// }
+
 let eggNumber = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 let windowWidth = window.innerWidth;
 let body = document.body;
@@ -8,10 +17,11 @@ let gameOver = false;
 let shadow = document.querySelector(".shadow");
 let startBtn = document.querySelector(".start-btn");
 
-function createBubble() {
+function createEgg() {
   let div = document.createElement("div");
   div.className = "egg";
   div.innerText = eggNumber[Math.floor(Math.random() * eggNumber.length)];
+  // div.setAttribute("answer", 9)
 
   let rand = Math.floor(Math.random() * (windowWidth - 101));
   div.style.left = rand + "px";
@@ -31,6 +41,9 @@ function createBubble() {
         elem.innerText = "dead";
         gameLives--;
         document.querySelector(".lives").innerText = gameLives;
+        if (gameLives === 0) {
+          gameOver = true;
+        }
       } else {
         pos++;
         elem.style.top = pos + "px";
@@ -53,11 +66,12 @@ function createBubble() {
 }
 
 function restartGame() {
+  gameOver = false;
   let forRemoving = document.querySelectorAll(".egg");
   for (let i = 0; i < forRemoving.length; i++) {
     forRemoving[i].remove();
   }
-  gameOver = false;
+
   score = 0;
   document.querySelector(".score").innerText = score;
   gameLives = 3;
@@ -65,8 +79,8 @@ function restartGame() {
 }
 
 startBtn.addEventListener("click", function (e) {
-  restartGame();
-  // document.querySelector(".main-game").style.display = "none";
+  startGame();
+  document.querySelector(".game-menu").style.display = "none";
 });
 
 function startGame() {
@@ -74,12 +88,21 @@ function startGame() {
   let timeout = 0;
   let loop = setInterval(function () {
     timeout = Math.floor(Math.random() * 600 - 100);
+    // if ((gameOver = true)) {
+    //   clearInterval(loop);
+    //   shadow.style.display = "flex";
+    //   // shawdo;
+    // } else {
+    //   createBubble();
+    // }
+
     if (!gameOver) {
-      createBubble();
-    } else if (noPop !== total) {
+      createEgg();
+    } else {
       clearInterval(loop);
       shadow.style.display = "flex";
-      shadow.querySelector(".loser").style.display = "block";
-    } 
+      document.querySelector(".end-score").innerText = score;
+      document.querySelector(".score-board").style.display = "none";
+    }
   }, 800 + timeout);
 }

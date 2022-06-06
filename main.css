@@ -52,20 +52,26 @@ body {
   /* styling for the lives part in the scoreboard */
 }
 
-.loser {
-  display: none;
-}
-.winner {
-  display: none;
-}
-
-.main-game {
+/* ready start menu before game starts */
+.game-menu {
   width: 100vw;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+
+.shadow {
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.2);
+  font-size: 30px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  position: relative;
 }
 
 button.start-btn {
@@ -77,17 +83,6 @@ button.start-btn {
   height: 30px;
   width: 5%;
   margin: 8px auto;
-}
-
-.shadow {
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.6);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  position: relative;
 }
 
 .total-score {
