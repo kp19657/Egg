@@ -14,8 +14,8 @@ let windowHeight = window.innerHeight;
 let score = 0;
 let gameLives = 3;
 let gameOver = false;
-let shadow = document.querySelector(".shadow");
-let startBtn = document.querySelector(".start-btn");
+let endGame = document.querySelector(".end-game");
+// let allEggs = document.querySelectorAll(".egg");
 
 function createEgg() {
   let div = document.createElement("div");
@@ -66,21 +66,27 @@ function createEgg() {
 }
 
 function restartGame() {
-  gameOver = false;
   let forRemoving = document.querySelectorAll(".egg");
+  gameOver = false;
   for (let i = 0; i < forRemoving.length; i++) {
     forRemoving[i].remove();
   }
-
   score = 0;
   document.querySelector(".score").innerText = score;
   gameLives = 3;
   document.querySelector(".lives").innerText = gameLives;
 }
 
-startBtn.addEventListener("click", function (e) {
+document.querySelector(".start-btn").addEventListener("click", function (e) {
   startGame();
   document.querySelector(".game-menu").style.display = "none";
+});
+
+document.querySelector(".restart-btn").addEventListener("click", function (e) {
+  startGame();
+  // document.querySelector(".end-game").style.display = "none";
+  // document.querySelector(".score-board").style.display = "flex";
+  location.reload();
 });
 
 function startGame() {
@@ -88,19 +94,13 @@ function startGame() {
   let timeout = 0;
   let loop = setInterval(function () {
     timeout = Math.floor(Math.random() * 600 - 100);
-    // if ((gameOver = true)) {
-    //   clearInterval(loop);
-    //   shadow.style.display = "flex";
-    //   // shawdo;
-    // } else {
-    //   createBubble();
-    // }
 
-    if (!gameOver) {
+    if (gameOver === false) {
       createEgg();
     } else {
+      // pauseEggs();
       clearInterval(loop);
-      shadow.style.display = "flex";
+      endGame.style.display = "flex";
       document.querySelector(".end-score").innerText = score;
       document.querySelector(".score-board").style.display = "none";
     }

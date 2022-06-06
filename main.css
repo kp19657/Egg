@@ -27,14 +27,15 @@ body {
   border-radius: 50%;
   box-shadow: inset 0 0 10px #fff, inset -10px 10px 15px #020131,
     inset 5px 5px 10px #960101, inset -5px 5px 20px #fff;
-  /* inset 15px -25px 20px #9224ed; */
 }
 
 .score-board {
   background: #fff;
+  display: flex;
+  flex-direction: column;
+  font-size: 25px;
   width: 300px;
   height: 80px;
-  display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 0 0 20px 20px;
@@ -42,14 +43,6 @@ body {
   top: 0;
   left: calc(50% - 150px);
   z-index: 1001;
-}
-
-.score {
-  /* styling for the score part in the scoreboard */
-}
-
-.lives {
-  /* styling for the lives part in the scoreboard */
 }
 
 /* ready start menu before game starts */
@@ -62,7 +55,8 @@ body {
   flex-direction: column;
 }
 
-.shadow {
+/* greyed-out score board after the game is over */
+.end-game {
   width: 100vw;
   height: 100vh;
   background: rgba(0, 0, 0, 0.2);
@@ -72,6 +66,7 @@ body {
   align-items: center;
   z-index: 2000;
   position: relative;
+  flex-direction: column;
 }
 
 button.start-btn {
@@ -81,7 +76,18 @@ button.start-btn {
   border-radius: 30px;
   font-weight: bold;
   height: 30px;
-  width: 5%;
+  width: 10%;
+  margin: 8px auto;
+}
+
+button.restart-btn {
+  font-size: 20px;
+  border: none;
+  margin-top: 8px;
+  border-radius: 30px;
+  font-weight: bold;
+  height: 30px;
+  width: 10%;
   margin: 8px auto;
 }
 
