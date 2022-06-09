@@ -7,6 +7,7 @@ let gameOver = false;
 let endGame = document.querySelector(".end-game");
 let inputBox = document.getElementById("input-box");
 
+// function to randomly create eggs at different horizontal positions
 function createEgg() {
   let div = document.createElement("div");
   div.className = "egg";
@@ -36,6 +37,7 @@ function createEgg() {
   document.body.appendChild(div);
 }
 
+// function to restart the game
 function restartGame() {
   let forRemoving = document.querySelectorAll(".egg");
   gameOver = false;
@@ -59,6 +61,7 @@ document.querySelector(".restart-btn").addEventListener("click", function (e) {
   document.querySelector(".score-board").style.display = "flex";
 });
 
+// function to start the game
 function startGame() {
   restartGame();
   let timeout = 0;
@@ -76,7 +79,7 @@ function startGame() {
   }, 800 + timeout);
 }
 
-// Keyboard inputs
+// accept keyboard inputs
 document.addEventListener("keydown", function (e) {
   let numerical = [
     "0",
