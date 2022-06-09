@@ -25,8 +25,19 @@ body {
   background-repeat: no-repeat;
   background-color: white;
   border-radius: 50%;
+  animation: eggDescend 1;
+  animation-timing-function: linear;
   box-shadow: inset 0 0 10px #fff, inset -10px 10px 15px #020131,
     inset 5px 5px 10px #960101, inset -5px 5px 20px #fff;
+}
+
+@keyframes eggDescend {
+  0% {
+    top: 0px;
+  }
+  100% {
+    top: calc(100vh - 101px);
+  }
 }
 
 .score-board {
@@ -53,6 +64,8 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  line-height: 2.3em;
+  font-size: 20px;
 }
 
 /* greyed-out score board after the game is over */
@@ -71,7 +84,7 @@ body {
 
 button.start-btn {
   font-size: 20px;
-  border: none;
+  border: 1px;
   margin-top: 8px;
   border-radius: 30px;
   font-weight: bold;
@@ -82,7 +95,7 @@ button.start-btn {
 
 button.restart-btn {
   font-size: 20px;
-  border: none;
+  border: 1px;
   margin-top: 8px;
   border-radius: 30px;
   font-weight: bold;
@@ -91,10 +104,22 @@ button.restart-btn {
   margin: 8px auto;
 }
 
-.total-score {
-  /* background: #fff; */
-  padding: 10px 100px 40px;
-  /* border-radius: 10px; */
-  text-align: center;
-  /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.8); */
+.input-box {
+  text-align: left;
+  height: 50px;
+  line-height: 50px;
+  padding: 16px 8px;
+  font-size: 25px;
+  background-color: #fff;
+  z-index: 2000;
+}
+
+.bgWhite {
+  text-align: left;
+  height: 50px;
+  line-height: 50px;
+  padding: 16px 8px;
+  font-size: 25px;
+  background-color: #fff;
+  z-index: 2000;
 }
